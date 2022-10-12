@@ -1,0 +1,254 @@
+<style>
+    * {
+        background-color: #012148;
+    }
+    
+    .dropdown-content li>a,
+    .dropdown-content li>span {
+        font-size: 16px;
+        color: #fff !important;
+        display: block;
+        line-height: 22px;
+        padding: 14px 16px;
+    }
+    
+    .select-sim {
+        width: 100%;
+        height: 60px !important;
+        line-height: 22px;
+        vertical-align: middle;
+        position: relative;
+        background: white;
+        border: 1px solid rgba(16, 53, 127, 0.66);
+        overflow: hidden;
+        padding: 7px;
+        list-style: none;
+        border-radius: 5px;
+    }
+    
+    td,
+    th {
+        padding: 0px 0px;
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+        font-size: 15px;
+        border: 2px solid #fff;
+        width: 33% !important;
+    }
+    
+    th {
+        color: white;
+        padding: 10px;
+        border: 0px solid !important;
+    }
+    
+    td {
+        color: white;
+        padding: 30px;
+    }
+    
+    input.select-dropdown.dropdown-trigger {
+        color: white;
+    }
+    
+    th {
+        color: #2896FF;
+        font-size: 20px;
+    }
+    
+    .titulo {
+        color: white !important;
+        font-size: 25px;
+        text-align: center;
+    }
+    
+    .subtitulo {
+        color: #2896FF !important;
+        font-size: 17px;
+        text-align: center;
+    }
+    
+    .valores {
+        color: #fff;
+        text-align: center;
+    }
+</style>
+
+<div class="container">
+    <!-- <img class="banner" src="#" > -->
+    <div class="row">
+        <div class="input-field col s12 m6">
+            <div class="col s12">
+                <select class="col s12" id="Paquetetigo">
+                    <option value="" disabled selected>Selecciona Paquetes Premium Tigo</option>
+                        <option value="prime">PRIME VIDEO</option>
+                        <option value="hbogo">HBO GO</option>                            
+                </select>
+
+            </div>
+        </div>
+        <div class="input-field col s12 m6">
+            <div class="col s12">
+                <select class="col s12" id="PaqueteOtro">
+                    <option value="" disabled selected>Selecciona Paquetes Otros</option>
+                        <option value="netflix">NETFLIX</option>
+                        <option value="claro">CLARO VIDEO</option>
+                        <option value="movistar">MOVISTAR PLAY</option>
+                </select>
+
+            </div>
+        </div>
+    </div>
+    <div class="row hide-on-small-only">
+        <div class="col s12 ">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Paquete</th>
+                        <td class="paqueteTigo"></td>
+                        <td class="paqueteOtro"></td>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <th>Precio</th>
+                        <td class="valortigo"></td>
+                        <td class="valorotro"></td>
+                    </tr>
+                    <tr>
+                        <th>dispositivos en Simulténeo</th>
+                        <td class="dispotigo"></td>
+                        <td class="dispootro"></td>
+                    </tr>
+                    <tr>
+                        <th>Contenido series y películas</th>
+                        <td class="contigo"></td>
+                        <td class="conotro"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row hide-on-med-and-up">
+        <!-- hide-on-med-and-up -->
+        <div class="col s12 titulo paqueteTigo" id="paqueteTigo"></div>
+        <div class="col s4 subtitulo">Valos a pagar</div>
+        <div class="col s4 subtitulo">dispositivos en Simulténeo</div>
+        <div class="col s4 subtitulo">Contenido series y películas</div>
+        <div class="col s4 valortigo valores" id="valortigo"></div>
+        <div class="col s4 dispotigo valores" id="dispotigo"></div>
+        <div class="col s4 contigo valores" id="contigo"></div>
+    </div>
+
+    <div class="row hide-on-med-and-up">
+        <!-- hide-on-med-and-up -->
+        <div class="col s12 titulo paqueteOtro" id="paqueteOtro"></div>
+        <div class="col s4 subtitulo">Valos a pagar</div>
+        <div class="col s4 subtitulo">dispositivos en Simulténeo</div>
+        <div class="col s4 subtitulo">Contenido series y películas</div>
+        <div class="col s4 valorotro valores" id="valorotro"></div>
+        <div class="col s4 dispootro valores" id="dispootro"></div>
+        <div class="col s4 conotro valores" id="conotro"></div>
+    </div>
+
+</div>
+
+<script>
+    $(document).ready(function() {
+        $("#select").hide(); // ocultar 
+        $("#tabla").hide(); //
+        $('select').formSelect();
+    });
+
+    $('select').on('contentChanged', function() {
+        // re-initialize (update)
+        $(this).material_select();
+    });
+
+    $("#Paquetetigo").change(function() {
+        paqueteTigo = $('#PaqueteOtro').val();
+        LlenarPaquetes();
+    });
+
+    $("#PaqueteOtro").change(function() {
+        LlenarPaquetes();
+    });
+
+
+
+
+    // LLENAR PAQUETES
+    function LlenarPaquetes() {
+
+        paqueteTigo = $('#Paquetetigo').val();
+        PaqueteOtro = $('#PaqueteOtro').val();
+        var valorTigo;
+        var dispoTigo;
+        var conTigo;
+
+        switch (paqueteTigo) {
+            case 'prime':
+                valorTigo = 'Cortesía de 3 meses, a partir del 4to mes 17.900';
+                dispoTigo = 'Hasta 3';
+                conTigo = '+4.000';
+                break;
+            case 'hbogo':
+                valorTigo = '29.900';
+                dispoTigo = 'Hasta 2';
+                conTigo = '+2.500';
+                break;
+        }
+
+        switch (PaqueteOtro) {
+            case 'netflix':
+                valorOtro = '$16.900 o $32.900';
+                dispoOtro = 'Hasta 4 (Cobro Adicional)';
+                conOtro = '+4.000';
+                break;
+            case 'claro':
+                valorOtro = '$13.900';
+                dispoOtro = 'Hasta 2';
+                conOtro = '+25.000 (cobro Adicional)';
+                break;
+            case 'movistar':
+                valorOtro = '$17.950';
+                dispoOtro = 'Hasta 2';
+                conOtro = '+3.500';
+                break;
+        }
+
+
+        if (paqueteTigo == "prime") {
+            paqueteTigo = "PRIME VIDEO"
+        }
+        if (paqueteTigo == "hbogo") {
+            paqueteTigo = "HBO GO"
+        }
+
+        $('.paqueteTigo').text(paqueteTigo);
+        $('.valortigo').text(valorTigo);
+        $('.dispotigo').text(dispoTigo);
+        $('.contigo').text(conTigo);
+
+        if (PaqueteOtro == "netflix") {
+            paqueteTigo = "NETFLIX"
+        }
+        if (PaqueteOtro == "claro") {
+            paqueteTigo = "CLARO"
+        }
+        if (PaqueteOtro == "movistar") {
+            paqueteTigo = "MOVISTAR"
+        }
+
+        $('.paqueteOtro').text(paqueteTigo);
+        $('.valorotro').text(valorOtro);
+        $('.dispootro').text(dispoOtro);
+        $('.conotro').text(conOtro);
+
+
+
+    }
+</script>

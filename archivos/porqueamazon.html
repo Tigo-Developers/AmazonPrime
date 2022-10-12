@@ -1,0 +1,56 @@
+
+    
+<h2 class="description">¿ POR QUÉ AMAZON ?</h2>
+
+<div class="slider">
+<ul class="slides amazon">
+        <li>
+        <img src="img/1.png"> <!-- random image -->
+        <div class="caption center-align">
+        
+        <h5 class="light grey-text text-lighten-3 p">Pioneros en ofrecer una nueva plataforma de contenido digital en Colombia</h5>
+        </div>
+        </li>
+        <li>
+        <img src="img/2.png"> <!-- random image -->
+        <div class="caption left-align">
+        
+        <h5 class="light grey-text text-lighten-3 p">3 dispositivos para visualizar y descargar su contenido, donde quieras y cuando quieras..</h5>
+        </div>
+        </li>
+        <li>
+        <img src="img/3.png"> <!-- random image -->
+        <div class="caption right-align">
+       
+        <h5 class="light grey-text text-lighten-3 p">+ 4.000 series & películas, contenido propio y exclusivo</h5>
+        </div>
+        </li>
+        <li>
+        <img src="img/4.png"> <!-- random image -->
+        <div class="caption center-align">
+        
+        <h5 class="light grey-text text-lighten-3 p">Licencia incluida en pos 5.3</h5>
+        </div>
+        </li>
+</ul>
+   <div class="contenedor-silder-ofertas">
+        <button class="btn-silder" id="anterior">anterior</button>
+        <button class="btn-silder"  id="siguiente">siguiente</button>
+    </div>
+</div>
+<script>
+$(document).ready(function(){
+$('.slider').slider({
+        indicators: false
+});
+        $('#anterior').click( function(){
+        $('.slider').slider('prev');
+        //instance.prev(); 
+        }); 
+    
+        $('#siguiente').click( function(){
+          $('.slider').slider('next');
+          //instance.next();   
+        }); 
+});
+</script>
