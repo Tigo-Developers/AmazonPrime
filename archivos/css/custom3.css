@@ -15,6 +15,9 @@
     list-style: none;
     border-radius: 5px;
 }
+p {
+    color: white;
+}
 
 .dropdown-content li>a, .dropdown-content li>span {
     font-size: 16px;

@@ -5,10 +5,10 @@ body {
 }
 
 img.logo {
-    width: 146px;
+    width: 141px;
     display: flex;
-    padding: 15px;
-    padding-left: 23px;
+    padding: 0px;
+    padding-left: 35px;
     margin: 0px;
 }
 
@@ -22,7 +22,11 @@ p.titulo {
     background: #00C8FF !important;
     margin-bottom: 0px !important;
 }
-
+span.bold {
+    font-weight: 600;
+    color: #00377b;
+    text-align: center;
+}
 ul:not(.browser-default)>li {
     list-style-type: none;
     z-index: 9999;
@@ -89,17 +93,24 @@ nav {
     background-color: transparent !important;
     width: 100%;
     height: 56px;
-    line-height: 56px;
+    line-height: 40px !important;
 }
 
 li.menu {
     background: #00C8FF;
     margin-left: 10px;
+    border-radius: 10px;
+    width: 119px;
 }
 
 li.menu a {
     color: #00377b !important;
     font-size: 16px;
+    justify-content: center;
+}
+
+ul#menu {
+    background: #00c8ffb8;
 }
 
 .dropdown-content li>a,
